@@ -4,7 +4,7 @@
       <card class="card-login card-white">
         <template slot="header">
           <img src="img//card-primary.png" alt="" />
-          <h1 class="card-title">IoT GL</h1>
+          <h1 class="card-title">HOSPITAL PRIVADO</h1>
         </template>
 
         <div>
@@ -55,7 +55,7 @@
           </div>
 
           <div class="pull-right">
-            <h6><a href="#help!!!" class="link footer-link">Need Help?</a></h6>
+            <h6><a href="#help!!!" class="link footer-link"></a></h6>
           </div>
         </div>
       </card>

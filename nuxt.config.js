@@ -1,5 +1,8 @@
 export default {
   ssr: false,
+  /*
+  ** Headers of the page
+  */
   head: {
     title: 'IoT GL',
     meta: [
@@ -19,40 +22,66 @@ export default {
   router: {
     linkExactActiveClass: 'active'
   },
+  /*
+  ** Customize the progress-bar color
+  */
   loading: { color: '#fff' },
+  /*
+   ** Global CSS
+   */
   css: [
     'assets/css/demo.css',
     'assets/css/nucleo-icons.css',
     'assets/sass/black-dashboard.scss'
   ],
+  /*
+  ** Plugins to load before mounting the App
+  */
   plugins: [
     `~/plugins/dashboard-plugin.js`,
   ],
+  //autoimport
   components: true,
+  /*
+  ** Nuxt.js dev-modules
+  */
   buildModules: [],
+  /*
+  ** Nuxt.js modules
+  */
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
     'nuxt-highcharts',
   ],
+
+  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: process.env.AXIOS_BASE_URL 
   },
   env:{
-    mqtt_prefix: process.env.MQTT_PREFIX,
-    mqtt_host: process.env.MQTT_HOST,
-    mqtt_port: process.env.MQTT_PORT
+   mqtt_prefix: process.env.MQTT_PREFIX,
+   mqtt_host: process.env.MQTT_HOST,
+   mqtt_port: process.env.MQTT_PORT
   },
+
   server: {
     port: 3000, // default: 3000
-    host: '0.0.0.0', // default: localhost
+    host: 'iot.hospitalprivado.com,ar', // default: localhost
   },
-  serverMiddleware: [
-    { path: '/api', handler: '~/api/index.js' },
-    { path: '/api', handler: '~/api/cors-middleware.js' }
-  ],
+
+  serverMiddleware: {
+    '/api': '~/api'
+  },
+
+  /*
+  ** Build configuration
+  */
   build: {
     transpile: [/^element-ui/],
+    /*
+    ** You can extend webpack config here
+    */
     extend(config, ctx) {
     },
     babel: {
